@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Profiles</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="vue/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <link rel="stylesheet" href="css/newcss.css"/>
+    </head>
+    <body>
+        <div id='app' class="mainBox">
+            
+            <div class="header">
+            
+                <div class="menu">
+                    <h1>Profiles:</h1>
+                </div>
+              
+                
+                <script type="text/x-template" id="modal-template">
+                    <transition name="modal">
+                      <div class="modal-mask">
+                        <div class="modal-wrapper">
+                          <div class="modal-container">
+                          
+                            <div class="modal-header">
+                              <slot name="header">
+                                  
+                              </slot>
+                            </div>
+
+                            <div class="modal-body">
+                              <slot name="body">
+                                    
+                              </slot>
+                            </div>
+
+                            <div class="modal-footer">
+                              <slot name="footer">
+                                   
+                              </slot>
+                              <button v-on:click="$emit('close')">OK</button>
+                              <button v-on:click="$emit('cancel')">Cancel</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </transition>
+                  </script>
+               
+
+                <div class="buttonAdd">
+                    
+                    <div v-if="boxesUPD">
+                        <button id="show-modal" @click="buttonCheck">{{ buttonName = 'Delete' }}</button>
+                    </div>
+                        
+                    <div v-else>
+                        <button id="show-modal" @click="buttonCheck">{{ buttonName = 'Add Person' }}</button>
+                    </div>
+                    
+                    <div>
+                        <modal v-if="showModal" @close="handler" @cancel="close">
+                          <h2 slot="header">Add Person</h2>
+                          <h3 slot="header">Name:</h3>
+                          <p class="errorCode" v-if="errorCodeName" slot="header">Please provide your name!</p>
+                          <input slot="header" type="text" v-model.lazy="name">
+                          <h3 slot="header">Surname:</h3>
+                          <p class="errorCode" v-if="errorCodeSurname" slot="header">Please provide your surname!</p>
+                          <input slot="header" type="text" v-model.lazy="surname">
+                          <h3 slot="header">Age:</h3>
+                          <p class="errorCode" v-if="errorCodeAge" slot="header">Please provide your age!</p>
+                          <input slot="header" type="number" v-model.lazy="age">
+                          <h3 slot="header">Your BIO:</h3>
+                          <p class="errorCode" v-if="errorCodeBio" slot="header">Write something about yourself!</p>
+                          <textarea class="textArea" slot="footer" cols="30" rows="10" v-model.lazy="bio"></textarea>
+                        </modal>
+                    </div>
+                </div>
+            </div>
+            
+            <div v-if="addRecord" transition="expand" class='profileBox' v-for='user in userList'>
+
+                  <div>
+                      <input v-bind:id='user.id' v-bind:value="user" type="checkbox" v-model='checkedNames'>
+                      {{ checkTheBoxes }}
+                  </div>
+
+                  <div id='imgC' class="img">
+                      <img src="../img/pika.png" alt="profile_pic">
+                  </div>
+
+                  <div id='personC' class="person">
+
+                      <div class="cred"> 
+                          <div class='contents'>
+                              <h3>Full Name: </h3><p class='info'>&nbsp;{{ user.name }}&nbsp;{{ user.surname }}</p>
+                          </div>
+                          
+                          <div class='contents'>
+                              <h3>Age: </h3><p class='info'>&nbsp;{{ user.age }}</p>
+                          </div>
+                          
+                      </div>
+
+                      <div class="bio">
+                            <h3>BIO:</h3><p class='info'>&nbsp;{{ user.bio }}</p>
+                          </div>
+                  </div>
+            </div> 
+        </div>
+        
+        <script src="vueJS.js"></script>
+    </body>
+</html>

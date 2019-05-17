@@ -1,0 +1,177 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15 May 2019, 11:50:05
+    Author     : zdkan
+*/
+/*div {
+    border: solid 1px;
+}*/
+
+body {
+    background-color: rgb(196, 218, 255);
+}
+
+button {
+    background-color: #e8e8e8;
+    width: 90px;
+    height: 30px;
+}
+
+button:hover {
+    background-color: #d6d6d6;
+}
+
+.img img{
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 25px 25px;
+    border: solid 3px;
+    border-color: black;
+    width: 150px;
+    height: 150px;
+}
+
+.header {
+    border-bottom: solid 2px;
+    display: flex;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.mainBox {
+    position: relative;
+    left: 10%;
+    width: 80%;
+}
+
+.menu {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    background-color: lightgrey;
+    border-radius: 5%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+}
+
+.buttonAdd {
+    position: absolute;
+    right: 5%;
+    z-index: 50;
+    width: 95%;
+    padding-top: 1.7em;
+    text-align: right;
+    float: right;
+}
+
+.profileBox {
+    display: flex;
+    margin-top: 5px;
+}
+
+.profileBox:hover > #personC { 
+    background-color: #e6e6e6;
+}
+
+
+.person {
+    -webkit-box-shadow: 8px 7px 4px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 8px 7px 4px -4px rgba(0,0,0,0.75);
+    box-shadow: 8px 7px 4px -4px rgba(0,0,0,0.75);
+    background-color: lightgray;
+    border-radius: 25px 25px;
+    border: solid 3px;
+    border-color: #bfbfbf;
+    display: flex;
+    width: 100%;
+}
+
+.cred {
+    display: inline;
+    width: 50%;
+}
+
+.contents {
+    display: flex;
+    font-family: sans-serif;
+}
+
+.bio {
+    position: relative;
+    width: 50%;
+    float: right;
+    font-family: sans-serif;
+}
+
+.info {
+    font-size: 14pt;
+    font-family: monospace;
+}
+
+p {
+    overflow: auto;
+    max-width: 440px;
+    max-height: 200px;
+}
+
+.errorCode {
+    color: red;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+}
+
+.modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.modal-container {
+    text-align: left;
+    width: 300px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.textArea{
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    min-height: 50px;
+    min-width: 256px;
+    max-width: 250px;
+    max-height: 300px;
+}
+
+.modal-body {
+    float: left;
+    margin: 20px 0;
+}
+
+.modal-default-button {
+    display: block;
+    float: right;
+}
+
+.modal-enter-active, .modal-leave-active {
+    transition: opacity .5s;
+}
+
+.modal-enter, .modal-leave-to {
+    opacity: 0;
+}
