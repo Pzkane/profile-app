@@ -96,6 +96,8 @@ button:hover {
 }
 
 .contents {
+    padding-left: 5%;
+    padding-top: 3%;
     display: flex;
     font-family: sans-serif;
 }

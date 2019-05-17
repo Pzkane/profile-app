@@ -25,9 +25,12 @@ Vue.component('modal', {
 var app = new Vue({
   el: '#app',
   data: {
+	// checked boxes array
     checkedNames: [],
+	// user array
     userList: [],
     
+	// person data
     id: '0',
     img: '',
     name: '',
@@ -39,6 +42,7 @@ var app = new Vue({
     showModal: false,
     boxesUPD: false,
     
+	// error listing
     errorList: [],
     errorCodeName: false,
     errorCodeSurname: false,
@@ -47,9 +51,11 @@ var app = new Vue({
   },
   
   computed: {
+	  // debug purposes [
       showRecords: function() {
           console.log(this.userList);
       },
+	  // ]
       
       checkTheBoxes: function () {
           if(this.checkedNames.length)
@@ -68,6 +74,7 @@ var app = new Vue({
             return true;
         },
         
+		// close popup form (cancelation)
         close: function() {
             this.name = "";
             this.surname = "";
@@ -93,6 +100,7 @@ var app = new Vue({
             }
         },
         
+		// validation
         handler: function () {
             if (!this.name || !(/^[a-zA-Z]+$/.test(this.name))){
                 this.errorCodeName = true;
